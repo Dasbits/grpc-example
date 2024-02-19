@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\rservice.proto\"!\n\x0eGetUserRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\x05\"\'\n\x08UserData\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05\x65mail\x18\x02 \x01(\t24\n\x0bYourService\x12%\n\x07GetUser\x12\x0f.GetUserRequest\x1a\t.UserDatab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\rservice.proto\"!\n\x0eGetUserRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\x05\"-\n\x0e\x41\x64\x64UserRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05\x65mail\x18\x02 \x01(\t\"\'\n\x08UserData\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05\x65mail\x18\x02 \x01(\t2[\n\x0bYourService\x12%\n\x07GetUser\x12\x0f.GetUserRequest\x1a\t.UserData\x12%\n\x07\x41\x64\x64User\x12\x0f.AddUserRequest\x1a\t.UserDatab\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -23,8 +23,10 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._options = None
   _globals['_GETUSERREQUEST']._serialized_start=17
   _globals['_GETUSERREQUEST']._serialized_end=50
-  _globals['_USERDATA']._serialized_start=52
-  _globals['_USERDATA']._serialized_end=91
-  _globals['_YOURSERVICE']._serialized_start=93
-  _globals['_YOURSERVICE']._serialized_end=145
+  _globals['_ADDUSERREQUEST']._serialized_start=52
+  _globals['_ADDUSERREQUEST']._serialized_end=97
+  _globals['_USERDATA']._serialized_start=99
+  _globals['_USERDATA']._serialized_end=138
+  _globals['_YOURSERVICE']._serialized_start=140
+  _globals['_YOURSERVICE']._serialized_end=231
 # @@protoc_insertion_point(module_scope)

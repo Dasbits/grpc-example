@@ -4,6 +4,11 @@ message GetUserRequest {
   int32 user_id = 1;
 }
 
+message AddUserRequest {
+  string name = 1;
+  string email = 2;
+}
+
 message UserData {
   string name = 1;
   string email = 2;
@@ -11,4 +16,5 @@ message UserData {
 
 service YourService {
   rpc GetUser(GetUserRequest) returns (UserData);
+  rpc AddUser(AddUserRequest) returns (UserData);
 }

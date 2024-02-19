@@ -19,6 +19,11 @@ class YourServiceStub(object):
                 request_serializer=service__pb2.GetUserRequest.SerializeToString,
                 response_deserializer=service__pb2.UserData.FromString,
                 )
+        self.AddUser = channel.unary_unary(
+                '/YourService/AddUser',
+                request_serializer=service__pb2.AddUserRequest.SerializeToString,
+                response_deserializer=service__pb2.UserData.FromString,
+                )
 
 
 class YourServiceServicer(object):
@@ -30,12 +35,23 @@ class YourServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def AddUser(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_YourServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'GetUser': grpc.unary_unary_rpc_method_handler(
                     servicer.GetUser,
                     request_deserializer=service__pb2.GetUserRequest.FromString,
+                    response_serializer=service__pb2.UserData.SerializeToString,
+            ),
+            'AddUser': grpc.unary_unary_rpc_method_handler(
+                    servicer.AddUser,
+                    request_deserializer=service__pb2.AddUserRequest.FromString,
                     response_serializer=service__pb2.UserData.SerializeToString,
             ),
     }
@@ -61,6 +77,23 @@ class YourService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/YourService/GetUser',
             service__pb2.GetUserRequest.SerializeToString,
+            service__pb2.UserData.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def AddUser(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/YourService/AddUser',
+            service__pb2.AddUserRequest.SerializeToString,
             service__pb2.UserData.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
