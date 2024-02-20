@@ -1,6 +1,6 @@
 import grpc
 from concurrent import futures
-from service_pb2 import GetUserRequest, UserData
+from service_pb2 import GetUserRequest, UserData, SumRequest
 import service_pb2_grpc
 
 users = []
@@ -19,8 +19,8 @@ class YourService(service_pb2_grpc.YourServiceServicer):
         users.append(new_user_data)
         return new_user_data
     
-    def SumOne(self, request, context):
-        return request + 1
+    def SumNumbers(self, request, context):
+        return SumRequest(result=request.number1 + request.number2)
 
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))

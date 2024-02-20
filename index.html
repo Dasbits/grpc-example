@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gRPC</title>
+</head>
+
+<body>
+    <h1>Aprenem gRPC</h1>
+    <h3>Sumem dos números</h3>
+    <input type="number" id="number1">
+    <input type="number" id="number2">
+    <button id="enviarN">Enviar</button>
+
+    <h3>Afegim usuaris</h3>
+    <input type="text" id="nom">
+    <input type="email" id="email">
+    <button id="enviarU">Enviar</button>
+
+    <h3>Busquem usuaris</h3>
+    <input type="text" id="buscar">
+    <button id="buscarU">Buscar</button>
+</body>
+
+<script>
+    
+
+    const enviarN = document.getElementById('enviarN')
+    const enviarU = document.getElementById('enviarU')
+    const buscarU = document.getElementById('buscarU')
+
+    enviarN.addEventListener('click', () => {
+        const number1 = document.getElementById('number1').value
+        const number2 = document.getElementById('number2').value
+        ipcRenderer.send('sumar', number1, number2)
+    })
+
+    enviarU.addEventListener('click', () => {
+        const nom = document.getElementById('nom').value
+        const email = document.getElementById('email').value
+        ipcRenderer.send('afegir', nom, email)
+    })
+
+    buscarU.addEventListener('click', () => {
+        const buscar = document.getElementById('buscar').value
+        ipcRenderer.send('buscar', buscar)
+    })
+</script>
+
+</html>

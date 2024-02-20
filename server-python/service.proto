@@ -14,8 +14,9 @@ message UserData {
   string email = 2;
 }
 
-message AddOneRequest {
-    int32 number = 1;
+message SumRequest {
+    int32 number1 = 1;
+    int32 number2 = 2;
 }
 
 service YourService {
